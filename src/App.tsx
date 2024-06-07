@@ -26,37 +26,42 @@ const App = () => {
       setOutputText(response.data.result);
     } catch (error) {
       console.error("Error fetching Furigana:", error);
-      setOutputText("Failed to fetch Furigina.");
+      setOutputText("Failed to fetch Furigana.");
     } finally {
       setIsLoading(false);
     }
   };
 
+  const disabled = isLoading || !inputText.trim();
+
   return (
-    <div className="flex justify-around p-5">
-      <div>
-        <textarea
-          value={inputText}
-          onChange={handleInputChange}
-          placeholder="Enter Japanese text here"
-          className="w-72 h-24 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-        />
-        <button
-          onClick={handleButtonClick}
-          disabled={isLoading || !inputText.trim()}
-          className={`mt-2 w-full p-2 bg-blue-500 text-white rounded-md ${
-            isLoading || !inputText.trim() ? "bg-blue-300" : "hover:bg-blue-700"
-          }`}
-        >
-          Generate Furigana
-        </button>
-      </div>
-      <div className="w-72 h-24 border border-gray-300 p-2 rounded-md">
-        {isLoading ? (
-          "Loading..."
-        ) : (
-          <div dangerouslySetInnerHTML={{ __html: outputText }} />
-        )}
+    <div className="px-10 py-5">
+      <div className="text-2xl">Furigana Generator</div>
+      <div className="flex mt-4">
+        <div className="flex flex-col">
+          <textarea
+            value={inputText}
+            onChange={handleInputChange}
+            placeholder="Enter Japanese text here"
+            className="w-96 h-36 p-2 border resize-none border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+          <button
+            onClick={handleButtonClick}
+            disabled={disabled}
+            className={`mt-2 w-48 px-4 py-2 bg-blue-500 text-white rounded-md ${
+              disabled ? "!bg-blue-300 cursor-not-allowed" : "hover:bg-blue-700"
+            }`}
+          >
+            Generate Furigana
+          </button>
+        </div>
+        <div className="w-96 h-36 ml-10 border border-gray-300 bg-gray-100 p-2 rounded-md">
+          {isLoading ? (
+            "Loading..."
+          ) : (
+            <div dangerouslySetInnerHTML={{ __html: outputText }} />
+          )}
+        </div>
       </div>
     </div>
   );
