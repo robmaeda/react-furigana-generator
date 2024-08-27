@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import parse from "html-react-parser"
 
 const App = () => {
   const [inputText, setInputText] = useState<string>("");
@@ -59,7 +60,7 @@ const App = () => {
           {isLoading ? (
             "Loading..."
           ) : (
-            <div>{outputText}</div>
+            <div>{parse(outputText)}</div>
           )}
         </div>
       </div>
