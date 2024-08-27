@@ -36,7 +36,7 @@ const App = () => {
   const disabled = isLoading || !inputText.trim();
 
   return (
-    <div className="px-10 py-5 flex flex-col items-center">
+    <div className="px-10 py-5 flex flex-col items-center xl:pt-14">
       <div className="text-3xl">Furigana Generator</div>
       <div className="mt-2">Input Japanese text to get its furigana instanty with our generator.</div>
       <div className="flex flex-col items-center justify-center mt-14">
