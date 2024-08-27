@@ -59,7 +59,7 @@ const App = () => {
           {isLoading ? (
             "Loading..."
           ) : (
-            <div dangerouslySetInnerHTML={{ __html: outputText }} />
+            <div>{outputText}</div>
           )}
         </div>
       </div>
