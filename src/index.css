@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: 'Cutive Mono', monospace;
+    background-color: #EDE8DF;
+  }
