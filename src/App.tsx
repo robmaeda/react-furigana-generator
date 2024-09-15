@@ -1,6 +1,6 @@
-import { useState } from "react";
 import axios from "axios";
-import parse from "html-react-parser"
+import parse from "html-react-parser";
+import { useState } from "react";
 
 const App = () => {
   const [inputText, setInputText] = useState<string>("");
@@ -39,6 +39,7 @@ const App = () => {
     <div className="px-10 py-5 flex flex-col items-center xl:pt-14">
       <div className="text-3xl">Furigana Generator</div>
       <div className="mt-2">Input Japanese text to get its furigana instanty with our generator.</div>
+      <div className="mt-4">Paste the example below: 仕事を探していますよ。</div>
       <div className="flex flex-col items-center justify-center mt-14">
         <div className="flex">
           <textarea
