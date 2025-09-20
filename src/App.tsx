@@ -55,8 +55,8 @@ const App = () => {
               text: inputText,
             }
           );
-          console.log(translateResponse);
-          setTranslation(translateResponse.data.translations[0].translated_text);
+
+          setTranslation(translateResponse.data.result);
         } catch (translateError) {
           console.error("Error translating text:", translateError);
           setTranslation("Translation failed. Please try again.");
