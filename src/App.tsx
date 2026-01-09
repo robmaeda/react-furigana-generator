@@ -1,3 +1,4 @@
+import { track } from "@vercel/analytics";
 import axios from "axios";
 import parse from "html-react-parser";
 import { useEffect, useState } from "react";
@@ -33,6 +34,7 @@ const App = () => {
       return;
     }
 
+    track("generate_clicked");
     setIsLoading(true);
     setTranslation(""); // Clear previous translation
     
@@ -85,6 +87,7 @@ const App = () => {
 
   const handleToggleTranslate = () => {
     if (!translateEnabled) {
+      track("translation_enable_attempted");
       setShowPasswordModal(true);
     } else {
       setTranslateEnabled(false);
